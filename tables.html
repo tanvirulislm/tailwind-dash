@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-gray-100 dark:bg-gray-900">
+    <div class="flex h-screen overflow-hidden">
+      <!-- Sidebar -->
+      <div
+        class="sidebar bg-white dark:bg-gray-800 text-gray-800 dark:text-white w-64 flex-shrink-0 border-r border-gray-200 dark:border-gray-700 flex flex-col"
+      >
+        <!-- Logo Bar -->
+        <div
+          class="flex items-center justify-between p-4 border-gray-200 dark:border-gray-700"
+        >
+          <div class="flex items-center">
+            <div
+              class="w-8 h-8 bg-indigo-600 dark:bg-indigo-700 rounded-full flex items-center justify-center text-white"
+            >
+              <i data-feather="box"></i>
+            </div>
+            <span class="logo-text ml-3 font-semibold text-lg">AdminPro</span>
+          </div>
+        </div>
+        <!-- Sidebar Menu -->
+        <div class="flex-1 overflow-y-auto">
+          <nav class="p-4">
+            <div class="mb-6">
+              <!-- <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">MAIN</p> -->
+              <ul>
+                <li class="mb-2">
+                  <a
+                    href="index.html"
+                    class="flex items-center p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
+                  >
+                    <i data-feather="home" class="w-5 h-5"></i>
+                    <span class="nav-text ml-3">Dashboard</span>
+                  </a>
+                </li>
+                <li class="mb-2">
+                  <a
+                    href="tables.html"
+                    class="flex items-center p-2 text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-gray-700 rounded-lg"
+                  >
+                    <i data-feather="table" class="w-5 h-5"></i>
+                    <span class="nav-text ml-3">Tables</span>
+                  </a>
+                </li>
+                <li class="mb-2">
+                  <a
+                    href="#"
+                    class="flex items-center p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
+                  >
+                    <i data-feather="settings" class="w-5 h-5"></i>
+                    <span class="nav-text ml-3">Settings</span>
+                  </a>
+                </li>
+                <li class="mb-2">
+                  <a
+                    href="alerts.html"
+                    class="flex items-center p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
+                  >
+                    <i data-feather="alert-circle" class="w-5 h-5"></i>
+                    <span class="nav-text ml-3">Alerts</span>
+                  </a>
+                </li>
+                <li class="mb-2">
+                  <a
+                    href="forms.html"
+                    class="flex items-center p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
+                  >
+                    <i data-feather="edit" class="w-5 h-5"></i>
+                    <span class="nav-text ml-3">Forms</span>
+                  </a>
+                </li>
+                <li class="mb-2">
+                  <a
+                    href="#"
+                    class="flex items-center p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
+                  >
+                    <i data-feather="grid" class="w-5 h-5"></i>
+                    <span class="nav-text ml-3">Cards</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Header -->
+        <header class="bg-white dark:bg-gray-800 shadow-sm z-10">
+          <div
+            class="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-700"
+          >
+            <div class="flex items-center">
+              <button
+                id="sidebar-toggle"
+                class="mr-4 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+              >
+                <i data-feather="menu"></i>
+              </button>
+              <h1 class="text-xl font-semibold text-gray-800 dark:text-white">
+                Dashboard
+              </h1>
+            </div>
+            <div class="flex items-center space-x-4">
+              <div class="relative">
+                <button
+                  id="theme-toggle"
+                  class="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+                >
+                  <i data-feather="moon" class="hidden dark:block"></i>
+                  <i data-feather="sun" class="dark:hidden"></i>
+                </button>
+              </div>
+              <!-- **************** -->
+              <div class="relative">
+                <button id="notificationBtn" class="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 relative focus:outline-none">
+                  <i data-feather="bell" class="w-5 h-5"></i>
+                  <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center animate-pulse">3</span>
+                </button>
+              
+                <!-- Notification Dropdown -->
+                <div id="notificationDropdown" class="hidden absolute right-0 mt-[15px] w-80 bg-white dark:bg-gray-800 rounded-md shadow-lg z-20 border border-gray-200 dark:border-gray-700 divide-y divide-gray-200 dark:divide-gray-700 transform origin-top-right transition-all duration-200 scale-95 opacity-0">
+                  <div class="px-4 py-3 flex items-center justify-between border-b border-gray-200 dark:border-gray-700">
+                    <h3 class="font-medium text-gray-900 dark:text-white">Notifications</h3>
+                    <button class="text-xs text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300">
+                      Mark all as read
+                    </button>
+                  </div>
+                  
+                  <div class="max-h-96 overflow-y-auto">
+                    <!-- Notification Item 1 -->
+                    <a href="#" class="flex px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700">
+                      <div class="flex-shrink-0">
+                        <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                      </div>
+                      <div class="ml-3">
+                        <p class="text-sm font-medium text-gray-900 dark:text-white">John Doe</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Commented on your post</p>
+                        <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">2 minutes ago</p>
+                      </div>
+                    </a>
+                    
+                    <!-- Notification Item 2 -->
+                    <a href="#" class="flex px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700">
+                      <div class="flex-shrink-0">
+                        <div class="h-10 w-10 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center">
+                          <i data-feather="users" class="w-5 h-5 text-indigo-600 dark:text-indigo-400"></i>
+                        </div>
+                      </div>
+                      <div class="ml-3">
+                        <p class="text-sm font-medium text-gray-900 dark:text-white">New followers</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">5 new people followed you</p>
+                        <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">1 hour ago</p>
+                      </div>
+                    </a>
+                    
+                    <!-- Notification Item 3 -->
+                    <a href="#" class="flex px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700">
+                      <div class="flex-shrink-0">
+                        <div class="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center">
+                          <i data-feather="check-circle" class="w-5 h-5 text-green-600 dark:text-green-400"></i>
+                        </div>
+                      </div>
+                      <div class="ml-3">
+                        <p class="text-sm font-medium text-gray-900 dark:text-white">Order completed</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Your order #12345 has been shipped</p>
+                        <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">3 hours ago</p>
+                      </div>
+                    </a>
+                  </div>
+                  
+                  <div class="px-4 py-2 text-center border-t border-gray-200 dark:border-gray-700">
+                    <a href="#" class="text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300">
+                      View all notifications
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- **************** -->
+              <div class="relative">
+                <button id="profileBtn" class="flex items-center space-x-1 focus:outline-none mr-3">
+                  <div class="flex items-center space-x-2">
+                    <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="User" class="w-10 h-10 rounded-full border-2 border-white shadow-sm">
+                    <div class="text-left hidden md:block">
+                      <p class="text-sm font-medium text-gray-800 dark:text-white">Sarah Johnson</p>
+                    </div>
+                  </div>
+                  <i id="profileChevron" data-feather="chevron-down" class="w-5 h-5 text-gray-500 dark:text-gray-400 transition-transform duration-200"></i>
+                </button>
+                
+                <!-- Profile Dropdown Content -->
+                <div id="profileDropdown" class="hidden absolute right-0 mt-[15px] mr-3 w-56 bg-white dark:bg-gray-800 rounded-md shadow-sm z-10 border border-gray-200 dark:border-gray-700">
+                  <div class="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center space-x-3">
+                    <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="User" class="w-11 h-11 rounded-full border-2 border-white shadow-sm">
+                    <div>
+                      <p class="font-medium text-gray-800 dark:text-white">Sarah Johnson</p>
+                      <p class="text-sm text-gray-500 dark:text-gray-400">sarah@example.com</p>
+                    </div>
+                  </div>
+                  <div class="py-1">
+                    <a href="profile.html" class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+                      <i data-feather="user" class="w-4 h-4 mr-3 text-gray-500 dark:text-gray-400"></i>
+                      Profile
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+                      <i data-feather="settings" class="w-4 h-4 mr-3 text-gray-500 dark:text-gray-400"></i>
+                      Settings
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+                      <i data-feather="activity" class="w-4 h-4 mr-3 text-gray-500 dark:text-gray-400"></i>
+                      Activity Log
+                    </a>
+                  </div>
+                  <div class="py-1 border-t border-gray-200 dark:border-gray-700">
+                    <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+                      <i data-feather="log-out" class="w-4 h-4 mr-3 text-gray-500 dark:text-gray-400"></i>
+                      Logout
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 overflow-y-auto p-6 bg-gray-50 dark:bg-gray-900">
+          <!-- Breadcrumb and Page Title -->
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-semibold text-gray-800 dark:text-white">
+              Tables Overview
+            </h2>
+            <nav class="flex" aria-label="Breadcrumb">
+              <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                  <a
+                    href="#"
+                    class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-white"
+                  >
+                    <i data-feather="home" class="w-4 h-4 mr-2"></i>
+                    Home
+                  </a>
+                </li>
+                <li aria-current="page">
+                  <div class="flex items-center">
+                    <i
+                      data-feather="chevron-right"
+                      class="w-4 h-4 text-gray-400"
+                    ></i>
+                    <span
+                      class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400"
+                      >Tables</span
+                    >
+                  </div>
+                </li>
+              </ol>
+            </nav>
+          </div>
+
+          <!-- Tables -->
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden mb-6"
+          >
+            <div
+              class="px-6 py-4 border-b border-gray-200 dark:border-gray-700"
+            >
+              <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
+                User Table
+              </h3>
+            </div>
+            <div class="overflow-x-auto">
+              <table
+                class="min-w-full divide-y divide-gray-200 dark:divide-gray-700"
+              >
+                <thead class="bg-gray-50 dark:bg-gray-700">
+                  <tr>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                    >
+                      Name
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                    >
+                      Email
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                    >
+                      Role
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                    >
+                      Status
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                    >
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700"
+                >
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10">
+                          <div
+                            class="h-10 w-10 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-indigo-600 dark:text-indigo-300"
+                          >
+                            <i data-feather="user" class="w-5 h-5"></i>
+                          </div>
+                        </div>
+                        <div class="ml-4">
+                          <div
+                            class="text-sm font-medium text-gray-900 dark:text-white"
+                          >
+                            John Doe
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="text-sm text-gray-500 dark:text-gray-400">
+                        john@example.com
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200"
+                        >Admin</span
+                      >
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200"
+                        >Active</span
+                      >
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400"
+                    >
+                      <button
+                        class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-900 dark:hover:text-indigo-300 mr-3"
+                      >
+                        <i data-feather="edit" class="w-4 h-4"></i>
+                      </button>
+                      <button
+                        class="text-red-600 dark:text-red-400 hover:text-red-900 dark:hover:text-red-300"
+                      >
+                        <i data-feather="trash-2" class="w-4 h-4"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10">
+                          <div
+                            class="h-10 w-10 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-indigo-600 dark:text-indigo-300"
+                          >
+                            <i data-feather="user" class="w-5 h-5"></i>
+                          </div>
+                        </div>
+                        <div class="ml-4">
+                          <div
+                            class="text-sm font-medium text-gray-900 dark:text-white"
+                          >
+                            Jane Smith
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="text-sm text-gray-500 dark:text-gray-400">
+                        jane@example.com
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200"
+                        >Editor</span
+                      >
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200"
+                        >Active</span
+                      >
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400"
+                    >
+                      <button
+                        class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-900 dark:hover:text-indigo-300 mr-3"
+                      >
+                        <i data-feather="edit" class="w-4 h-4"></i>
+                      </button>
+                      <button
+                        class="text-red-600 dark:text-red-400 hover:text-red-900 dark:hover:text-red-300"
+                      >
+                        <i data-feather="trash-2" class="w-4 h-4"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10">
+                          <div
+                            class="h-10 w-10 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-indigo-600 dark:text-indigo-300"
+                          >
+                            <i data-feather="user" class="w-5 h-5"></i>
+                          </div>
+                        </div>
+                        <div class="ml-4">
+                          <div
+                            class="text-sm font-medium text-gray-900 dark:text-white"
+                          >
+                            Robert Johnson
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="text-sm text-gray-500 dark:text-gray-400">
+                        robert@example.com
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200"
+                        >Author</span
+                      >
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200"
+                        >Inactive</span
+                      >
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400"
+                    >
+                      <button
+                        class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-900 dark:hover:text-indigo-300 mr-3"
+                      >
+                        <i data-feather="edit" class="w-4 h-4"></i>
+                      </button>
+                      <button
+                        class="text-red-600 dark:text-red-400 hover:text-red-900 dark:hover:text-red-300"
+                      >
+                        <i data-feather="trash-2" class="w-4 h-4"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Card-style Table with Subtle Accents -->
+          <div
+            class="bg-white dark:bg-gray-800 rounded-2xl shadow-xs overflow-hidden mb-6 border border-gray-100 dark:border-gray-700"
+          >
+            <div
+              class="px-6 py-4 flex items-center justify-between border-b border-gray-100 dark:border-gray-700"
+            >
+              <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
+                Team Members
+              </h3>
+              <button
+                class="text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300"
+              >
+                View All
+              </button>
+            </div>
+            <div class="divide-y divide-gray-100 dark:divide-gray-700">
+              <!-- Row 1 -->
+              <div class="px-6 py-4 flex items-center">
+                <div class="flex-shrink-0 mr-4">
+                  <div
+                    class="w-10 h-10 rounded-full bg-indigo-500 text-white flex items-center justify-center font-medium"
+                  >
+                    JD
+                  </div>
+                </div>
+                <div class="flex-grow">
+                  <h4 class="text-sm font-medium text-gray-800 dark:text-white">
+                    John Doe
+                  </h4>
+                  <p class="text-xs text-gray-500 dark:text-gray-400">
+                    Frontend Developer
+                  </p>
+                </div>
+                <div class="ml-4">
+                  <span
+                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-200"
+                  >
+                    Active
+                  </span>
+                </div>
+                <div class="ml-4 flex space-x-2">
+                  <button
+                    class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                  >
+                    <i data-feather="message-square" class="w-4 h-4"></i>
+                  </button>
+                  <button
+                    class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                  >
+                    <i data-feather="more-vertical" class="w-4 h-4"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Row 2 -->
+              <div class="px-6 py-4 flex items-center">
+                <div class="flex-shrink-0 mr-4">
+                  <div
+                    class="w-10 h-10 rounded-full bg-pink-500 text-white flex items-center justify-center font-medium"
+                  >
+                    AS
+                  </div>
+                </div>
+                <div class="flex-grow">
+                  <h4 class="text-sm font-medium text-gray-800 dark:text-white">
+                    Alice Smith
+                  </h4>
+                  <p class="text-xs text-gray-500 dark:text-gray-400">
+                    UX Designer
+                  </p>
+                </div>
+                <div class="ml-4">
+                  <span
+                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200"
+                  >
+                    Online
+                  </span>
+                </div>
+                <div class="ml-4 flex space-x-2">
+                  <button
+                    class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                  >
+                    <i data-feather="message-square" class="w-4 h-4"></i>
+                  </button>
+                  <button
+                    class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                  >
+                    <i data-feather="more-vertical" class="w-4 h-4"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Row 3 -->
+              <div class="px-6 py-4 flex items-center">
+                <div class="flex-shrink-0 mr-4">
+                  <div
+                    class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center font-medium"
+                  >
+                    RJ
+                  </div>
+                </div>
+                <div class="flex-grow">
+                  <h4 class="text-sm font-medium text-gray-800 dark:text-white">
+                    Robert Johnson
+                  </h4>
+                  <p class="text-xs text-gray-500 dark:text-gray-400">
+                    Backend Developer
+                  </p>
+                </div>
+                <div class="ml-4">
+                  <span
+                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+                  >
+                    Offline
+                  </span>
+                </div>
+                <div class="ml-4 flex space-x-2">
+                  <button
+                    class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                  >
+                    <i data-feather="message-square" class="w-4 h-4"></i>
+                  </button>
+                  <button
+                    class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                  >
+                    <i data-feather="more-vertical" class="w-4 h-4"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Minimalist Table with Hover Effects -->
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden mb-6 border border-gray-100 dark:border-gray-700"
+          >
+            <div class="px-5 py-3">
+              <h3 class="text-lg font-medium text-gray-800 dark:text-white">
+                Recent Transactions
+              </h3>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full">
+                <thead>
+                  <tr
+                    class="text-left border-b border-gray-100 dark:border-gray-700"
+                  >
+                    <th
+                      class="px-5 py-3 text-xs font-medium text-gray-500 dark:text-gray-400 uppercase"
+                    >
+                      Transaction
+                    </th>
+                    <th
+                      class="px-5 py-3 text-xs font-medium text-gray-500 dark:text-gray-400 uppercase"
+                    >
+                      Date
+                    </th>
+                    <th
+                      class="px-5 py-3 text-xs font-medium text-gray-500 dark:text-gray-400 uppercase"
+                    >
+                      Amount
+                    </th>
+                    <th
+                      class="px-5 py-3 text-xs font-medium text-gray-500 dark:text-gray-400 uppercase"
+                    >
+                      Status
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
+                  <tr
+                    class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+                  >
+                    <td class="px-5 py-4">
+                      <div class="flex items-center gap-3">
+                        <div
+                          class="w-8 h-8 rounded-md bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center"
+                        >
+                          <i
+                            data-feather="dollar-sign"
+                            class="w-4 h-4 text-emerald-600 dark:text-emerald-400"
+                          ></i>
+                        </div>
+                        <div>
+                          <p class="font-medium text-gray-800 dark:text-white">
+                            Payment Received
+                          </p>
+                          <p class="text-xs text-gray-500 dark:text-gray-400">
+                            #TX-78945
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      class="px-5 py-4 text-sm text-gray-600 dark:text-gray-300"
+                    >
+                      May 15, 2023
+                    </td>
+                    <td
+                      class="px-5 py-4 font-medium text-gray-800 dark:text-white"
+                    >
+                      +$249.00
+                    </td>
+                    <td class="px-5 py-4">
+                      <span
+                        class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200"
+                      >
+                        <i data-feather="check-circle" class="w-3 h-3"></i>
+                        Completed
+                      </span>
+                    </td>
+                  </tr>
+                  <tr
+                    class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+                  >
+                    <td class="px-5 py-4">
+                      <div class="flex items-center gap-3">
+                        <div
+                          class="w-8 h-8 rounded-md bg-amber-50 dark:bg-amber-900/30 flex items-center justify-center"
+                        >
+                          <i
+                            data-feather="shopping-bag"
+                            class="w-4 h-4 text-amber-600 dark:text-amber-400"
+                          ></i>
+                        </div>
+                        <div>
+                          <p class="font-medium text-gray-800 dark:text-white">
+                            Online Purchase
+                          </p>
+                          <p class="text-xs text-gray-500 dark:text-gray-400">
+                            #TX-78946
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      class="px-5 py-4 text-sm text-gray-600 dark:text-gray-300"
+                    >
+                      May 14, 2023
+                    </td>
+                    <td
+                      class="px-5 py-4 font-medium text-gray-800 dark:text-white"
+                    >
+                      -$89.99
+                    </td>
+                    <td class="px-5 py-4">
+                      <span
+                        class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200"
+                      >
+                        <i data-feather="clock" class="w-3 h-3"></i>
+                        Pending
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div
+              class="px-5 py-3 border-t border-gray-100 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-400"
+            >
+              Showing 2 of 12 transactions
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

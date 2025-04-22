@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShikhoBD - Learn Tech Skills in Bangla</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #4f46e5 0%, #1e40af 100%);
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .nav-link:hover {
+            color: #4f46e5;
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        .bangla-font {
+            font-family: 'SolaimanLipi', 'Siyam Rupali', Arial, sans-serif;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">শিখো</span>
+                </div>
+                <span class="text-xl font-bold text-gray-800">ShikhoBD</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#courses" class="nav-link text-gray-600 hover:text-indigo-600 font-medium transition">কোর্সসমূহ</a>
+                <a href="#features" class="nav-link text-gray-600 hover:text-indigo-600 font-medium transition">সুবিধাসমূহ</a>
+                <a href="#testimonials" class="nav-link text-gray-600 hover:text-indigo-600 font-medium transition">শিক্ষার্থীদের মন্তব্য</a>
+                <a href="#faq" class="nav-link text-gray-600 hover:text-indigo-600 font-medium transition">প্রশ্নোত্তর</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <a href="#" class="hidden md:block px-4 py-2 text-indigo-600 font-medium rounded hover:bg-indigo-50 transition">লগ ইন</a>
+                <a href="#" class="px-4 py-2 bg-indigo-600 text-white font-medium rounded hover:bg-indigo-700 transition">রেজিস্টার</a>
+                <button class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white">
+        <div class="container mx-auto px-4 py-20 md:py-32">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">প্রযুক্তি শিখুন সহজ বাংলায়</h1>
+                    <p class="text-xl mb-8 opacity-90">বাংলাদেশের সেরা প্রযুক্তি শিক্ষা প্ল্যাটফর্ম। শিখুন হাতে-কলমে, বাস্তব প্রজেক্টের মাধ্যমে।</p>
+                    <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                        <a href="#" class="px-8 py-3 bg-white text-indigo-600 font-bold rounded-lg text-center hover:bg-gray-100 transition">কোর্স এক্সপ্লোর করুন</a>
+                        <a href="#" class="px-8 py-3 border-2 border-white text-white font-bold rounded-lg text-center hover:bg-white hover:text-indigo-600 transition">
+                            <div class="flex items-center justify-center">
+                                <i class="fas fa-play mr-2"></i>
+                                ভিডিও দেখুন
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://i.ibb.co/6Yk2d3L/hero-image.png" alt="Hero Image" class="w-full max-w-md floating">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="p-4">
+                    <div class="text-4xl font-bold text-indigo-600 mb-2">10,000+</div>
+                    <div class="text-gray-600">শিক্ষার্থী</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl font-bold text-indigo-600 mb-2">50+</div>
+                    <div class="text-gray-600">কোর্স</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl font-bold text-indigo-600 mb-2">100+</div>
+                    <div class="text-gray-600">প্রশিক্ষক</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl font-bold text-indigo-600 mb-2">95%</div>
+                    <div class="text-gray-600">সাফল্যের হার</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">আমাদের জনপ্রিয় কোর্সসমূহ</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">বাংলাদেশের সেরা প্রযুক্তি বিশেষজ্ঞদের দ্বারা তৈরি কোর্সসমূহ</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Course Card 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden course-card transition duration-300">
+                    <div class="relative">
+                        <img src="https://i.ibb.co/8XJxQ3T/web-dev.jpg" alt="Web Development" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 right-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">বেস্টসেলার</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">কমপ্লিট ওয়েব ডেভেলপমেন্ট</h3>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded">বাংলা</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">HTML, CSS, JavaScript থেকে React, Node.js পর্যন্ত শিখুন এক কোর্সে</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span class="text-gray-700 font-medium">4.9</span>
+                                <span class="text-gray-500 mx-1">|</span>
+                                <span class="text-gray-500">500+ শিক্ষার্থী</span>
+                            </div>
+                            <span class="text-indigo-600 font-bold">৳ 3,999</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course Card 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden course-card transition duration-300">
+                    <div class="relative">
+                        <img src="https://i.ibb.co/6W9Q5ZR/python.jpg" alt="Python Programming" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">নতুন</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">পাইথন প্রোগ্রামিং</h3>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded">বাংলা</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">শূন্য থেকে পাইথন শিখুন এবং ডাটা সাইন্স, মেশিন লার্নিং এর বেসিক শিখুন</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span class="text-gray-700 font-medium">4.8</span>
+                                <span class="text-gray-500 mx-1">|</span>
+                                <span class="text-gray-500">350+ শিক্ষার্থী</span>
+                            </div>
+                            <span class="text-indigo-600 font-bold">৳ 2,499</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course Card 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden course-card transition duration-300">
+                    <div class="relative">
+                        <img src="https://i.ibb.co/4W2x4yK/graphics.jpg" alt="Graphics Design" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">গ্রাফিক্স ডিজাইন</h3>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded">বাংলা</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Adobe Photoshop এবং Illustrator শিখে ফ্রিল্যান্সিং শুরু করুন</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span class="text-gray-700 font-medium">4.7</span>
+                                <span class="text-gray-500 mx-1">|</span>
+                                <span class="text-gray-500">400+ শিক্ষার্থী</span>
+                            </div>
+                            <span class="text-indigo-600 font-bold">৳ 1,999</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="px-8 py-3 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 transition inline-block">
+                    সব কোর্স দেখুন <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">কেন ShikhoBD তে শিখবেন?</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">আমাদের অনন্য কিছু বৈশিষ্ট্য যা আপনাকে সেরা শিক্ষা অভিজ্ঞতা দেবে</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">প্রজেক্ট ভিত্তিক শেখা</h3>
+                    <p class="text-gray-600">শুধু তত্ত্ব নয়, বাস্তব প্রজেক্টের মাধ্যমে হাতে-কলমে শিখুন যা আপনাকে চাকরি বা ফ্রিল্যান্সিং এ এগিয়ে রাখবে</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">২৪/৭ সাপোর্ট</h3>
+                    <p class="text-gray-600">কোন সমস্যায় পড়লে আমাদের এক্সপার্ট টিম সবসময় আপনার পাশে। ফেসবুক গ্রুপ এবং ডিসকোর্ড সার্ভারে সরাসরি সাহায্য পান</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-certificate text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">সার্টিফিকেট</h3>
+                    <p class="text-gray-600">কোর্স সম্পন্ন করলে পাবেন আন্তর্জাতিক মানের সার্টিফিকেট যা আপনার CV কে আরো শক্তিশালী করবে</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">মোবাইল ফ্রেন্ডলি</h3>
+                    <p class="text-gray-600">মোবাইল অ্যাপের মাধ্যমে যেকোনো সময়, যেকোনো জায়গায় শিখুন। ইন্টারনেট সংযোগ না থাকলেও ভিডিও ডাউনলোড করে দেখুন</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-chalkboard-teacher text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">বিশেষজ্ঞ প্রশিক্ষক</h3>
+                    <p class="text-gray-600">বাংলাদেশের সেরা ইন্ডাস্ট্রি এক্সপার্টদের কাছ থেকে শিখুন যারা বাস্তব কাজের অভিজ্ঞতা সম্পন্ন</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-hand-holding-usd text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">সাশ্রয়ী মূল্য</h3>
+                    <p class="text-gray-600">বাজারের তুলনায় অনেক কম মূল্যে পাচ্ছেন মানসম্মত শিক্ষা। এছাড়া রয়েছে ইএমআই এবং স্কলারশিপ সুবিধা</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">আমাদের শিক্ষার্থীদের মন্তব্য</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">ShikhoBD কিভাবে হাজারো শিক্ষার্থীর জীবন বদলে দিয়েছে</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://i.ibb.co/0jq7Y7J/user1.jpg" alt="User" class="w-12 h-12 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-800">আহমেদ রাফি</h4>
+                            <p class="text-gray-600 text-sm">ওয়েব ডেভেলপার, ডাটাডট</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"ShikhoBD এর ওয়েব ডেভেলপমেন্ট কোর্সটি আমার ক্যারিয়ার বদলে দিয়েছে। ৬ মাসের মাথায় আমি একজন জুনিয়র ডেভেলপার হিসেবে চাকরি পেয়ে গেছি।"</p>
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://i.ibb.co/4W2HYM1/user2.jpg" alt="User" class="w-12 h-12 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-800">তাসনিমা আক্তার</h4>
+                            <p class="text-gray-600 text-sm">গ্রাফিক্স ডিজাইনার, ফ্রিল্যান্সার</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"গ্রাফিক্স ডিজাইনের কোর্সটি আমাকে সম্পূর্ণ নতুন একটি স্কিল শিখিয়েছে। এখন আমি ফ্রিল্যান্সিং করে মাসে ৩০-৪০ হাজার টাকা আয় করছি।"</p>
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://i.ibb.co/0jq7Y7J/user1.jpg" alt="User" class="w-12 h-12 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-800">সজীব ইসলাম</h4>
+                            <p class="text-gray-600 text-sm">পাইথন ডেভেলপার, টেকভয়েস</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"পাইথন শেখার পর আমার প্রোগ্রামিং এর ভীত অনেক শক্ত হয়েছে। এখন আমি বিভিন্ন প্রজেক্টে পাইথন ব্যবহার করি এবং সমস্যা সমাধান করতে পারি।"</p>
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star-half-alt text-yellow-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-indigo-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">আজই শুরু করুন আপনার শেখার যাত্রা</h2>
+            <p class="text-xl opacity-90 mb-8 max-w-2xl mx-auto">বাংলাদেশের সেরা প্রযুক্তি শিক্ষা প্ল্যাটফর্মে যোগ দিন এবং আপনার ক্যারিয়ারকে এগিয়ে নিন</p>
+            <a href="#" class="px-8 py-3 bg-white text-indigo-600 font-bold rounded-lg hover:bg-gray-100 transition inline-block">এখনই রেজিস্টার করুন</a>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">সচরাচর জিজ্ঞাসিত প্রশ্ন</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">আপনার মনে থাকা সাধারণ কিছু প্রশ্নের উত্তর</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- FAQ Item 1 -->
+                <div class="mb-6 border-b border-gray-200 pb-6">
+                    <button class="flex justify-between items-center w-full text-left font-bold text-gray-800 text-lg focus:outline-none">
+                        <span>কোর্সগুলো কতদিন এক্সেস করতে পারব?</span>
+                        <i class="fas fa-chevron-down text-indigo-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden">
+                        <p>আপনি একবার কোর্স কিনলে আজীবন এক্সেস পাবেন। আমরা নিয়মিত আপডেটও দিয়ে থাকি কোর্সগুলোতে, যা আপনি বিনামূল্যে পাবেন।</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="mb-6 border-b border-gray-200 pb-6">
+                    <button class="flex justify-between items-center w-full text-left font-bold text-gray-800 text-lg focus:outline-none">
+                        <span>কোর্সের ফি কি ইএমআই এ দেওয়া যাবে?</span>
+                        <i class="fas fa-chevron-down text-indigo-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden">
+                        <p>হ্যাঁ, আমাদের বেশিরভাগ কোর্সে ইএমআই সুবিধা রয়েছে। আপনি বাকিতে কোর্স কিনতে পারবেন এবং মাসিক কিস্তিতে পরিশোধ করতে পারবেন।</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="mb-6 border-b border-gray-200 pb-6">
+                    <button class="flex justify-between items-center w-full text-left font-bold text-gray-800 text-lg focus:outline-none">
+                        <span>কোর্স শেষে কি চাকরি পেতে সাহায্য করবেন?</span>
+                        <i class="fas fa-chevron-down text-indigo-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden">
+                        <p>আমাদের ক্যারিয়ার সাপোর্ট টিম নিয়মিত চাকরির সুযোগ শেয়ার করে এবং ইন্টারভিউ প্রস্তুতিতে সাহায্য করে। এছাড়া আমাদের পার্টনার কোম্পানিগুলোতে প্রাইরিটি ভিত্তিতে চাকরির সুযোগ পাবেন।</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="mb-6 border-b border-gray-200 pb-6">
+                    <button class="flex justify-between items-center w-full text-left font-bold text-gray-800 text-lg focus:outline-none">
+                        <span>আমার কোন পূর্ব অভিজ্ঞতা লাগবে কি?</span>
+                        <i class="fas fa-chevron-down text-indigo-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden">
+                        <p>আমাদের বেশিরভাগ কোর্স শূন্য থেকে শেখানোর জন্য ডিজাইন করা হয়েছে। তবে কিছু এডভান্সড কোর্সের জন্য বেসিক জ্ঞান লাগতে পারে, যা কোর্স ডিটেইলে উল্লেখ করা থাকে।</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="mb-6 border-b border-gray-200 pb-6">
+                    <button class="flex justify-between items-center w-full text-left font-bold text-gray-800 text-lg focus:outline-none">
+                        <span>কোর্সের ভিডিও ডাউনলোড করে রাখতে পারব?</span>
+                        <i class="fas fa-chevron-down text-indigo-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden">
+                        <p>হ্যাঁ, আমাদের মোবাইল অ্যাপের মাধ্যমে আপনি কোর্সের ভিডিও ডাউনলোড করে অফলাইনে দেখতে পারবেন। তবে ডাউনলোড করা ভিডিও শুধুমাত্র আপনার ব্যক্তিগত ব্যবহারের জন্য।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <!-- Column 1 -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">শিখো</span>
+                        </div>
+                        <span class="text-xl font-bold">ShikhoBD</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">বাংলাদেশের সেরা প্রযুক্তি শিক্ষা প্ল্যাটফর্ম</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">কোর্সসমূহ</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">ওয়েব ডেভেলপমেন্ট</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">মোবাইল অ্যাপ ডেভেলপমেন্ট</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">ডাটা সাইন্স</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">গ্রাফিক্স ডিজাইন</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">ডিজিটাল মার্কেটিং</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">লিংকসমূহ</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">হোম</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">প্রাইভেসি পলিসি</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">টার্মস অ্যান্ড কন্ডিশন</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">যোগাযোগ</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-indigo-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">মিরপুর রোড, ঢাকা-১২১৬, বাংলাদেশ</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-indigo-400 mr-3"></i>
+                            <span class="text-gray-400">+880 1234 567890</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-indigo-400 mr-3"></i>
+                            <span class="text-gray-400">info@shikhobd.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2023 ShikhoBD. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ toggle functionality
+        document.querySelectorAll('#faq button').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                // Toggle content
+                content.classList.toggle('hidden');
+                
+                // Toggle icon
+                if (content.classList.contains('hidden')) {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                } else {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            });
+        });
+
+        // Mobile menu toggle (would need more implementation)
+        document.querySelector('.md\\:hidden button').addEventListener('click', () => {
+            alert('Mobile menu would open here in a full implementation');
+        });
+    </script>
+</body>
+</html>
