@@ -8,24 +8,6 @@ document
     document.querySelector(".sidebar").classList.toggle("collapsed");
   });
 
-// Toggle Dark Mode
-document.getElementById("theme-toggle").addEventListener("click", function () {
-  document.documentElement.classList.toggle("dark");
-  localStorage.setItem(
-    "darkMode",
-    document.documentElement.classList.contains("dark")
-  );
-});
-
-// Check for saved dark mode preference
-if (localStorage.getItem("darkMode") === "true") {
-  document.documentElement.classList.add("dark");
-} else if (
-  !localStorage.getItem("darkMode") &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches
-) {
-  document.documentElement.classList.add("dark");
-}
 // Profile Dropdown
 document.getElementById("profileBtn").addEventListener("click", function (e) {
   e.stopPropagation();
